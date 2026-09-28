@@ -1,0 +1,13 @@
+[package]
+name = "buddy_allocator"
+version = "0.1.0"
+edition = "2021"
+description = "A pure in-process buddy memory allocator simulator with split/coalesce, validation and statistics"
+license = "MIT"
+
+[lib]
+path = "src/lib.rs"
+
+[dependencies]
+
+[dev-dependencies]
