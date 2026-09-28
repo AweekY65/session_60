@@ -1,0 +1,25 @@
+[package]
+name = "buddy-allocator"
+version = "0.1.0"
+edition = "2021"
+description = "A Buddy Memory Allocator simulator backed by a fixed-size in-process memory pool"
+license = "MIT"
+
+[lib]
+name = "buddy_allocator"
+path = "src/lib.rs"
+
+[[example]]
+name = "demo"
+path = "examples/demo.rs"
+
+# 无任何第三方依赖：分配器、随机数、测试全部在工程内实现，
+# 不依赖操作系统内存管理服务、数据库或外部服务。
+[dependencies]
+
+[dev-dependencies]
+
+# 属性测试在每一步都做全量不变量校验（O(块数 log 块数)），
+# 用 opt-level 1 让 `cargo test` 在秒级完成，同时不影响默认 dev 构建。
+[profile.test]
+opt-level = 1
